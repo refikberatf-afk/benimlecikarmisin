@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana Bir Sorum Var... ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <!-- İLK SORU EKRANI -->
+        <div id="main-screen" class="screen active">
+            <h1 id="main-title">Benimle Sevgili Olur musun? 🌹</h1>
+            <div class="gif-box">
+                <img id="main-gif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Cute Cat">
+            </div>
+            <div class="btn-group">
+                <button id="yes-btn" onclick="sayYes()">Evet! 🥰</button>
+                <button id="no-btn" onmouseover="moveNoButton()" onclick="moveNoButton()">Hayır 😢</button>
+            </div>
+        </div>
+
+        <!-- EVET DEYİNCE ÇIKAN KUTLAMA EKRANI -->
+        <div id="success-screen" class="screen">
+            <h1>Biliyordum Zaten! 😍</h1>
+            <div class="gif-box">
+                <img src="https://media.giphy.com/media/3o7TKoWXm3okO1kgHC/giphy.gif" alt="Happy Celebration">
+            </div>
+            <p id="success-text">Artık resmi olarak dünyanın en şanslı insanıyım! ❤️</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
