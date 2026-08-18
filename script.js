@@ -1,46 +1,47 @@
 let noClickCount = 0;
+let hasTriedVazgec = false;
 
-// Sayfalar arası geçiş fonksiyonu
 function nextStep(stepNumber) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(`step-${stepNumber}`).classList.add('active');
 }
 
-// 1. Aşamada "Hayır" butonunu kaçırma mantığı
-function moveButton() {
-    const btn = document.getElementById('runaway-btn');
-    const maxX = 100;
-    const maxY = 50;
-
-    const randomX = (Math.random() - 0.5) * maxX * 2;
-    const randomY = (Math.random() - 0.5) * maxY * 2;
-
-    btn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+function goToStep2() {
+    nextStep(2);
+    if (hasTriedVazgec) {
+        let vazgecBtn = document.getElementById('vazgec-btn');
+        if (vazgecBtn) {
+            vazgecBtn.style.display = 'none';
+        }
+    }
 }
 
-// "Vazgeçtim" butonuna basınca çalışan ceza ekranı ve 3 saniyelik bar
+// 1. Aşamada Hayır butonunun üzerine gelince kilitlenme ve solma efekti
+function lockButton() {
+    const btn = document.getElementById('runaway-btn');
+    btn.classList.add('locked-no');
+    btn.textContent = "Kilitlendi 🔒";
+}
+
 function showCryScreen() {
+    hasTriedVazgec = true;
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById('cry-screen').classList.add('active');
 
-    let timeLeft = 3;
     let progressBar = document.getElementById('progress-bar');
     let timerText = document.getElementById('timer-text');
     
     progressBar.style.width = '0%';
-    timerText.textContent = `Lütfen bekleyin, kendinize geliyorsunuz... (${timeLeft})`;
+    timerText.textContent = `Hayır vazgeçmedin! (3)`;
 
-    // Barın dolması ve sürenin sayılması
     let startTime = Date.now();
-    let duration = 3000; // 3 saniye
+    let duration = 3000;
 
     let interval = setInterval(() => {
         let elapsed = Date.now() - startTime;
         let percentage = (elapsed / duration) * 100;
         
-        if (percentage >= 100) {
-            percentage = 100;
-        }
+        if (percentage >= 100) percentage = 100;
         progressBar.style.width = percentage + '%';
 
         let currentSecond = 3 - Math.floor(elapsed / 1000);
@@ -49,13 +50,12 @@ function showCryScreen() {
 
         if (elapsed >= duration) {
             clearInterval(interval);
-            // 3 saniye bitince otomatik olarak 3. aşamaya ("ÇOK HEYECANLANDIM") at
-            nextStep(3);
+            goToStep2();
         }
     }, 50);
 }
 
-// 4. Aşamada "Hayır" butonunu kaçırma ve "Evet"i büyütme mantığı
+// Final aşamasında Hayır butonunu kaçırma (Burası eskisi gibi kaçmaya devam ediyor)
 function moveFinalNo() {
     const noBtn = document.getElementById('final-no');
     const yesBtn = document.getElementById('final-yes');
@@ -73,7 +73,6 @@ function moveFinalNo() {
     yesBtn.style.transform = `scale(${currentScale})`;
 }
 
-// Başarı ekranı
 function sayYes() {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById('success-screen').classList.add('active');
