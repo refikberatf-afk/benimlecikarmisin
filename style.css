@@ -58,6 +58,8 @@ h1 {
     justify-content: center;
     width: 100%;
     margin-top: 10px;
+    position: relative;
+    z-index: 20; /* Tıklanabilirliği en üste çıkarır */
 }
 
 .btn-group-dynamic {
@@ -68,6 +70,7 @@ h1 {
     margin-top: 10px;
     position: relative;
     min-height: 60px;
+    z-index: 20;
 }
 
 button {
@@ -84,7 +87,7 @@ button {
     background: #22c55e;
     color: white;
     box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
-    z-index: 10;
+    z-index: 25;
 }
 
 .btn-yes:hover {
@@ -95,15 +98,15 @@ button {
     background: #ef4444;
     color: white;
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    z-index: 25;
 }
 
-/* 1. aşamadaki kilitlenen Hayır butonu için özel sınıf */
+/* 1. aşamadaki kilitlenen Hayır butonu */
 .locked-no {
-    background: #fca5a5 !important; /* Rengi soluk kırmızı olur */
+    background: #fca5a5 !important;
     color: #fef2f2 !important;
     cursor: not-allowed !important;
     opacity: 0.6;
-    transform: scale(0.95);
 }
 
 /* 4. aşamadaki kaçan buton */
