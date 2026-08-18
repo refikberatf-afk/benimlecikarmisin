@@ -40,12 +40,12 @@ body {
 
 h1 {
     color: #e11d48;
-    font-size: 21px;
+    font-size: 20px;
     margin-bottom: 5px;
     line-height: 1.4;
 }
 
-.gif-box img {
+.gif-box img, .gif-box video {
     width: 180px;
     height: 180px;
     object-fit: cover;
@@ -97,21 +97,22 @@ button {
     box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 }
 
-/* 1. aşamadaki kaçan buton */
-#runaway-btn {
-    position: absolute;
-    right: 35px;
-    transition: all 0.1s ease-in-out;
+/* 1. aşamadaki kilitlenen Hayır butonu için özel sınıf */
+.locked-no {
+    background: #fca5a5 !important; /* Rengi soluk kırmızı olur */
+    color: #fef2f2 !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+    transform: scale(0.95);
 }
 
-/* 4. aşamadaki mutlak konumlu kaçan buton */
+/* 4. aşamadaki kaçan buton */
 #final-no {
     position: absolute;
     right: 30px;
     transition: all 0.1s ease-in-out;
 }
 
-/* 3 Saniyelik İlerleme Çubuğu Tasarımı */
 .progress-container {
     width: 100%;
     background: #e2e8f0;
@@ -135,7 +136,8 @@ button {
 }
 
 #success-text {
-    font-size: 15px;
+    font-size: 16px;
     color: #475569;
     line-height: 1.5;
+    font-weight: 600;
 }
