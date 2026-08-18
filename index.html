@@ -8,7 +8,8 @@
 </head>
 <body>
 
-<!-- 1. AŞAMA: Utangaç kedi & kilitlenen hayır -->
+    <div class="card">
+        <!-- 1. AŞAMA: Utangaç kedi & kilitlenen hayır -->
         <div id="step-1" class="screen active">
             <h1>Sana bişey sorabilir miyim?</h1>
             <div class="gif-box">
@@ -20,6 +21,7 @@
             </div>
         </div>
 
+        <!-- 2. AŞAMA: Zıplayan kedi videosu & Vazgeçtim seçeneği -->
         <div id="step-2" class="screen">
             <h1>Sorumu kabul ettiğin için çok teşekkür ederim, o zaman soruyorum</h1>
             <div class="gif-box">
@@ -31,6 +33,7 @@
             </div>
         </div>
 
+        <!-- 2.1 CEZA EKRANI -->
         <div id="cry-screen" class="screen">
             <h1 style="color: #ef4444;">Hayır vazgeçmedin!</h1>
             <div class="gif-box">
@@ -42,16 +45,18 @@
             </div>
         </div>
 
+        <!-- 3. AŞAMA: Yeni metin ve yeni minnoş kedi -->
         <div id="step-3" class="screen">
-            <h1>ÇOK HEYECANLANDIM ŞİMDİ</h1>
+            <h1>Cok heyecan yaptim su an</h1>
             <div class="gif-box">
-                <img src="https://media.giphy.com/media/1wXdlS8vM4V37e1T1w/giphy.gif" alt="Heart Cat">
+                <img src="heh.jpg" alt="Heyecanlı Kedi">
             </div>
             <div class="btn-group-static">
                 <button onclick="nextStep(4)" class="btn-yes">Devam Et</button>
             </div>
         </div>
 
+        <!-- 4. AŞAMA: Çiçekli kedi ve kaçan hayır -->
         <div id="step-4" class="screen">
             <h1>BNİMLE CKAR MSN?</h1>
             <div class="gif-box">
@@ -59,10 +64,11 @@
             </div>
             <div class="btn-group-dynamic">
                 <button id="final-yes" onclick="sayYes()" class="btn-yes">Evet!</button>
-                <button id="final-no" onmouseover="moveFinalNo()" onclick="moveFinalNo()" class="btn-no">Hayir</button>
+                <button id="final-no" onmouseover="moveFinalNo()" class="btn-no">Hayir</button>
             </div>
         </div>
 
+        <!-- KUTLAMA EKRANI -->
         <div id="success-screen" class="screen">
             <h1>Biliyordum Zaten!</h1>
             <div class="gif-box">
