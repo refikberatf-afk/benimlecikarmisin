@@ -3,29 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sana Bir Sorum Var... ❤️</title>
+    <title>Sana Bişey Sorabilir miyim? ❤️</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="card">
-        <!-- İLK SORU EKRANI -->
-        <div id="main-screen" class="screen active">
-            <h1 id="main-title">Benimle Sevgili Olur musun? 🌹</h1>
+        <!-- 1. AŞAMA: Sana bişey sorabilir miyim? (Hayır butonu mouse'dan kaçar) -->
+        <div id="step-1" class="screen active">
+            <h1>Sana bişey sorabilir miyim? 👉👈</h1>
             <div class="gif-box">
-                <img id="main-gif" src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Cute Cat">
+                <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Cute Cat">
             </div>
-            <div class="btn-group">
-                <button id="yes-btn" onclick="sayYes()">Evet! 🥰</button>
-                <button id="no-btn" onmouseover="moveNoButton()" onclick="moveNoButton()">Hayır 😢</button>
+            <div class="btn-group-dynamic">
+                <button onclick="nextStep(2)" class="btn-yes">Evet 😊</button>
+                <button id="runaway-btn" onmouseover="moveButton()" onclick="moveButton()" class="btn-no">Hayır 🙄</button>
             </div>
         </div>
 
-        <!-- EVET DEYİNCE ÇIKAN KUTLAMA EKRANI -->
+        <!-- 2. AŞAMA: Teşekkür & Sor / Vazgeçtim Seçimi -->
+        <div id="step-2" class="screen">
+            <h1>Sorumu kabul ettiğin için çok teşekkür ederim, o zaman soruyorum... 😏</h1>
+            <div class="gif-box">
+                <img src="https://media.giphy.com/media/3o7TKoWXm3okO1kgHC/giphy.gif" alt="Excited">
+            </div>
+            <div class="btn-group-static">
+                <button onclick="nextStep(3)" class="btn-yes">Sor bakalım 🚀</button>
+                <button onclick="showCryScreen()" class="btn-no">Vazgeçtim 😢</button>
+            </div>
+        </div>
+
+        <!-- 2.1 CEZA EKRANI (Vazgeçtim'e basınca 3 saniye bar ve ağlayan kedi) -->
+        <div id="cry-screen" class="screen">
+            <h1 style="color: #ef4444;">Hayır vazgeçmedin! 😾</h1>
+            <div class="gif-box">
+                <img src="kedi.jfif" alt="Ağlayan Kedi">
+            </div>
+            <p id="timer-text">Lütfen bekleyin, kendinize geliyorsunuz... (3)</p>
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+        </div>
+
+        <!-- 3. AŞAMA: Çok Heyecanlandım -->
+        <div id="step-3" class="screen">
+            <h1>ÇOK HEYECANLANDIM ŞİMDİ! 🫣💓</h1>
+            <div class="gif-box">
+                <img src="https://media.giphy.com/media/1wXdlS8vM4V37e1T1w/giphy.gif" alt="Heart Cat">
+            </div>
+            <div class="btn-group-static">
+                <button onclick="nextStep(4)" class="btn-yes">Devam Et ✨</button>
+            </div>
+        </div>
+
+        <!-- 4. AŞAMA: Final Teklif (Çiçekli kedi ve kaçan hayır butonu) -->
+        <div id="step-4" class="screen">
+            <h1>BNİMLE CKAR MSN? 🌸</h1>
+            <div class="gif-box">
+                <img src="cicek.jfif" alt="Çiçek Veren Kedi">
+            </div>
+            <div class="btn-group-dynamic">
+                <button id="final-yes" onclick="sayYes()" class="btn-yes">Evet! 🥰</button>
+                <button id="final-no" onmouseover="moveFinalNo()" onclick="moveFinalNo()" class="btn-no">Hayır 😭</button>
+            </div>
+        </div>
+
+        <!-- KUTLAMA / BAŞARI EKRANI -->
         <div id="success-screen" class="screen">
             <h1>Biliyordum Zaten! 😍</h1>
             <div class="gif-box">
-                <img src="https://media.giphy.com/media/3o7TKoWXm3okO1kgHC/giphy.gif" alt="Happy Celebration">
+                <img src="https://media.giphy.com/media/artj92V8o75VPL7AeQ/giphy.gif" alt="Happy Celebration">
             </div>
             <p id="success-text">Artık resmi olarak dünyanın en şanslı insanıyım! ❤️</p>
         </div>
