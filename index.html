@@ -9,33 +9,30 @@
 <body>
 
     <div class="card">
-        <!-- 1. AŞAMA: Sana bişey sorabilir miyim? (Hayır butonu mouse'dan kaçar) -->
         <div id="step-1" class="screen active">
-            <h1>Sana bişey sorabilir miyim? 👉👈</h1>
+            <h1>Sana bişey sorabilir miyim?</h1>
             <div class="gif-box">
-                <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Cute Cat">
-            </div>
-            <div class="btn-group-dynamic">
-                <button onclick="nextStep(2)" class="btn-yes">Evet 😊</button>
-                <button id="runaway-btn" onmouseover="moveButton()" onclick="moveButton()" class="btn-no">Hayır 🙄</button>
-            </div>
-        </div>
-
-        <!-- 2. AŞAMA: Teşekkür & Sor / Vazgeçtim Seçimi -->
-        <div id="step-2" class="screen">
-            <h1>Sorumu kabul ettiğin için çok teşekkür ederim, o zaman soruyorum... 😏</h1>
-            <div class="gif-box">
-                <img src="https://media.giphy.com/media/3o7TKoWXm3okO1kgHC/giphy.gif" alt="Excited">
+                <img src="utan.jpg" alt="Utangaç Kedi">
             </div>
             <div class="btn-group-static">
-                <button onclick="nextStep(3)" class="btn-yes">Sor bakalım 🚀</button>
-                <button onclick="showCryScreen()" class="btn-no">Vazgeçtim 😢</button>
+                <button onclick="goToStep2()" class="btn-yes">Evet</button>
+                <button id="runaway-btn" onmouseover="lockButton()" onclick="lockButton()" class="btn-no">Hayir</button>
             </div>
         </div>
 
-        <!-- 2.1 CEZA EKRANI (Vazgeçtim'e basınca 3 saniye bar ve ağlayan kedi) -->
+        <div id="step-2" class="screen">
+            <h1>Sorumu kabul ettiğin için çok teşekkür ederim, o zaman soruyorum</h1>
+            <div class="gif-box">
+                <video src="ziplayan.mp4" autoplay loop muted playsinline></video>
+            </div>
+            <div id="step2-buttons" class="btn-group-static">
+                <button onclick="nextStep(3)" class="btn-yes">Sor bakalım</button>
+                <button id="vazgec-btn" onclick="showCryScreen()" class="btn-no">Vazgeçtim</button>
+            </div>
+        </div>
+
         <div id="cry-screen" class="screen">
-            <h1 style="color: #ef4444;">Hayır vazgeçmedin! 😾</h1>
+            <h1 style="color: #ef4444;">Hayır vazgeçmedin!</h1>
             <div class="gif-box">
                 <img src="kedi.jfif" alt="Ağlayan Kedi">
             </div>
@@ -45,36 +42,33 @@
             </div>
         </div>
 
-        <!-- 3. AŞAMA: Çok Heyecanlandım -->
         <div id="step-3" class="screen">
-            <h1>ÇOK HEYECANLANDIM ŞİMDİ! 🫣💓</h1>
+            <h1>ÇOK HEYECANLANDIM ŞİMDİ</h1>
             <div class="gif-box">
                 <img src="https://media.giphy.com/media/1wXdlS8vM4V37e1T1w/giphy.gif" alt="Heart Cat">
             </div>
             <div class="btn-group-static">
-                <button onclick="nextStep(4)" class="btn-yes">Devam Et ✨</button>
+                <button onclick="nextStep(4)" class="btn-yes">Devam Et</button>
             </div>
         </div>
 
-        <!-- 4. AŞAMA: Final Teklif (Çiçekli kedi ve kaçan hayır butonu) -->
         <div id="step-4" class="screen">
-            <h1>BNİMLE CKAR MSN? 🌸</h1>
+            <h1>BNİMLE CKAR MSN?</h1>
             <div class="gif-box">
                 <img src="cicek.jfif" alt="Çiçek Veren Kedi">
             </div>
             <div class="btn-group-dynamic">
-                <button id="final-yes" onclick="sayYes()" class="btn-yes">Evet! 🥰</button>
-                <button id="final-no" onmouseover="moveFinalNo()" onclick="moveFinalNo()" class="btn-no">Hayır 😭</button>
+                <button id="final-yes" onclick="sayYes()" class="btn-yes">Evet!</button>
+                <button id="final-no" onmouseover="moveFinalNo()" onclick="moveFinalNo()" class="btn-no">Hayir</button>
             </div>
         </div>
 
-        <!-- KUTLAMA / BAŞARI EKRANI -->
         <div id="success-screen" class="screen">
-            <h1>Biliyordum Zaten! 😍</h1>
+            <h1>Biliyordum Zaten!</h1>
             <div class="gif-box">
-                <img src="https://media.giphy.com/media/artj92V8o75VPL7AeQ/giphy.gif" alt="Happy Celebration">
+                <img src="cift.jfif" alt="Kalp Kuyruklu Kediler">
             </div>
-            <p id="success-text">Artık resmi olarak dünyanın en şanslı insanıyım! ❤️</p>
+            <p id="success-text">Seni çok güzel sevicem şüphen olmasın ♥</p>
         </div>
     </div>
 
